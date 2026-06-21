@@ -69,8 +69,22 @@ public class PlayerMovement : MonoBehaviour
     {
         if (moveInput.x != 0)
         {
-            // Cambia esto si queda invertido
-            sr.flipX = moveInput.x > 0;
+            // Capturamos la escala actual
+            Vector3 currentScale = transform.localScale;
+
+            if (moveInput.x < 0)
+            {
+                // Moverse a la derecha: Escala positiva (sin cambio)
+                currentScale.x = Mathf.Abs(currentScale.x);
+            }
+            else if (moveInput.x > 0)
+            {
+                // Moverse a la izquierda: Escala negativa (flippea todo)
+                currentScale.x = -Mathf.Abs(currentScale.x);
+            }
+
+            // Aplicamos la nueva escala
+            transform.localScale = currentScale;
         }
     }
 
