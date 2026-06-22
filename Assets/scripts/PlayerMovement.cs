@@ -54,11 +54,15 @@ public class PlayerMovement : MonoBehaviour
     // -----------------------------
     // Salto
     // -----------------------------
+    [Header("Audio Script")]
+    [SerializeField] private PlayerAudio playerAudio;
     void Jump()
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame && isGrounded)
         {
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+
+            playerAudio.PlayJump();
         }
     }
 
