@@ -1362,7 +1362,7 @@ GameObject:
   - component: {fileID: 1961363108}
   - component: {fileID: 1961363107}
   m_Layer: 5
-  m_Name: SinglePlayer
+  m_Name: Arcade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1495,7 +1495,7 @@ GameObject:
   - component: {fileID: 2108802243}
   - component: {fileID: 2108802242}
   m_Layer: 5
-  m_Name: Two Players
+  m_Name: Versus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
