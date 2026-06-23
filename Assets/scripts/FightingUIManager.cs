@@ -22,6 +22,13 @@ public class FightingUIManager : MonoBehaviour
     [Header("Pause UI Elements")]
     [SerializeField] private GameObject pauseMenuPanel;
 
+    [Header("Timer UI Elements")]
+    [SerializeField] private TextMeshProUGUI timerText;
+
+    private float timeRemaining = 60f; // 1 minuto (en segundos)
+    private bool isMatchActive = true;
+    private Vector3 originalTimerScale;
+
     /// <summary>
     /// Propiedad estática para comprobar externamente si el juego está pausado.
     /// </summary>
@@ -36,6 +43,12 @@ public class FightingUIManager : MonoBehaviour
         }
         Time.timeScale = 1f;
         IsPaused = false;
+
+        // Timer
+        if (timerText != null)
+        {
+            originalTimerScale = timerText.rectTransform.localScale;
+        }
     }
 
     private void OnEnable()
@@ -80,6 +93,12 @@ public class FightingUIManager : MonoBehaviour
     {
         // Detección directa de inputs globales para Pausa (soporta teclado y control)
         CheckPauseInput();
+
+        // Solo corremos el temporizador si la partida está activa y no está en pausa
+        if (isMatchActive && !IsPaused)
+        {
+            ProcessTimer();
+        }
     }
 
     /// <summary>
@@ -229,6 +248,60 @@ public class FightingUIManager : MonoBehaviour
         Debug.Log("Menu Principal");
         // TODO: Implementar carga de escena del menú principal
         // SceneManager.LoadScene("MainMenu");
+    }
+
+    /// <summary>
+    /// Maneja la cuenta regresiva, el formato de texto y los efectos visuales de tensión.
+    /// </summary>
+    private void ProcessTimer()
+    {
+        timeRemaining -= Time.deltaTime;
+
+        // Si el tiempo se acaba
+        if (timeRemaining <= 0)
+        {
+            timeRemaining = 0;
+            isMatchActive = false;
+            HandleTimeUp();
+            return;
+        }
+
+        // Formato visual de Minutos:Segundos
+        int minutes = Mathf.FloorToInt(timeRemaining / 60);
+        int seconds = Mathf.FloorToInt(timeRemaining % 60);
+
+        // Formateamos para que siempre muestre dos dígitos en los segundos (ej: 1:05)
+        timerText.text = string.Format("{0}:{1:00}", minutes, seconds);
+
+        // Efectos visuales en los últimos 15 segundos
+        if (timeRemaining <= 15f)
+        {
+            // Mathf.PingPong crea un valor que rebota suavemente entre 0 y 1
+            // Multiplicamos el tiempo para que el "latido" sea más rápido (ej: * 4f)
+            float pingPong = Mathf.PingPong(Time.time * 4f, 1f);
+
+            // Interpola entre Blanco y Rojo usando el valor que rebota
+            timerText.color = Color.Lerp(Color.white, Color.red, pingPong);
+
+            // Interpola la escala para que crezca un 20% y regrese a la normalidad
+            float scalePulse = Mathf.Lerp(1f, 1.2f, pingPong);
+            timerText.rectTransform.localScale = originalTimerScale * scalePulse;
+        }
+    }
+
+    /// <summary>
+    /// Acciones a ejecutar cuando el temporizador llega a cero absoluto.
+    /// </summary>
+    private void HandleTimeUp()
+    {
+        timerText.text = "0:00";
+        timerText.color = Color.red;
+        
+        // Crece de tamaño permanentemente a 1.5 veces su tamaño original
+        timerText.rectTransform.localScale = originalTimerScale * 1.5f;
+
+        Debug.Log("[Temporizador] ¡Tiempo Agotado! Fin del Round.");
+        // Aquí en el futuro puedes disparar el evento OnTimeUp para detener a los jugadores
     }
     #endregion
 }

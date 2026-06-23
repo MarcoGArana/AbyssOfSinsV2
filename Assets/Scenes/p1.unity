@@ -321,6 +321,7 @@ MonoBehaviour:
   player2Slider: {fileID: 1850688082}
   player2NameText: {fileID: 1674777347}
   pauseMenuPanel: {fileID: 1705922215}
+  timerText: {fileID: 1011095017}
 --- !u!1 &118951053
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,7 +1598,7 @@ GameObject:
   - component: {fileID: 1011095018}
   - component: {fileID: 1011095017}
   m_Layer: 5
-  m_Name: Time_text
+  m_Name: Timer_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
