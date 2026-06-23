@@ -66,7 +66,19 @@ public class FighterMovement : MonoBehaviour
         if (opponent == null)
             return;
 
-        sr.flipX = opponent.position.x > transform.position.x;
+        //sr.flipX = opponent.position.x > transform.position.x;
+        Vector3 currentScale = transform.localScale;
+
+        if (opponent.position.x < transform.position.x)
+        {
+            currentScale.x = Mathf.Abs(currentScale.x);
+        }
+        else if (opponent.position.x > transform.position.x)
+        {
+            currentScale.x = -Mathf.Abs(currentScale.x);
+        }
+
+        transform.localScale = currentScale;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
