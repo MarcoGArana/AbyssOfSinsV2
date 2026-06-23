@@ -213,5 +213,22 @@ public class FightingUIManager : MonoBehaviour
         // Aquí se puede gatillar la UI de Fin del Round / Victoria del P1
     }
 
+    /// <summary>
+    /// Cierra la aplicación. Funciona al compilar el juego.
+    /// </summary>
+    public void QuitGame()
+    {
+        Debug.Log("Saliendo del juego...");
+        Application.Quit();
+    }
+    /// <summary>
+    /// Vuelve al menú principal. Funciona al compilar el juego.
+    /// </summary>
+    public void GoToMenu()
+    {
+        Debug.Log("Menu Principal");
+        // TODO: Implementar carga de escena del menú principal
+        // SceneManager.LoadScene("MainMenu");
+    }
     #endregion
 }
