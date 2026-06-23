@@ -16,7 +16,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Punch",
+                    "name": "Punch light",
                     "type": "Button",
                     "id": "1ea612c9-b2e8-42b1-a516-c71dff24fa4e",
                     "expectedControlType": "",
@@ -25,7 +25,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Kick",
+                    "name": "Kick light",
                     "type": "Button",
                     "id": "7adee821-024c-4906-a8a5-3a0a2aad3583",
                     "expectedControlType": "",
@@ -34,9 +34,9 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Dodge",
+                    "name": "Jump",
                     "type": "Button",
-                    "id": "1e5ee9b9-75db-4d34-95a9-91631bf34ffa",
+                    "id": "4f23812c-079b-45c0-9041-54bd9174dec6",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -102,11 +102,11 @@
                 {
                     "name": "",
                     "id": "0bfa792b-7182-4414-89e7-a72731f47dc0",
-                    "path": "<Keyboard>/p",
+                    "path": "<Keyboard>/j",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Punch",
+                    "action": "Punch light",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -117,18 +117,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Kick",
+                    "action": "Kick light",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "63748cf3-b536-41f0-a09b-df6691b1d4d0",
-                    "path": "<Keyboard>/x",
+                    "id": "84af0acb-fe0b-41c7-aa07-b2bc0904e18d",
+                    "path": "<Keyboard>/w",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Dodge",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
