@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 656381325}
   - component: {fileID: 656381328}
   - component: {fileID: 656381329}
+  - component: {fileID: 656381330}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Player
@@ -347,7 +348,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.27190503, y: 0.19741344}
+  m_Offset: {x: -0.09185064, y: -0.12332106}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -357,7 +358,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.915396, y: 3.605173}
+  m_Size: {x: 1.3495536, y: 4.979747}
   m_EdgeRadius: 0
 --- !u!114 &656381329
 MonoBehaviour:
@@ -377,6 +378,19 @@ MonoBehaviour:
   defense: 1
   moveSpeed: 5
   jumpForce: 12
+--- !u!114 &656381330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656381324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80038a8142044314688251579faf0d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  currentHealth: 0
 --- !u!1 &741413366
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,7 +962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1615103344
 Transform:
   m_ObjectHideFlags: 0
@@ -1543,7 +1557,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   opponent: {fileID: 656381327}
   crouching: 0
-  grounded: 0
+  grounded: 1
 --- !u!114 &2124834862
 MonoBehaviour:
   m_ObjectHideFlags: 0
