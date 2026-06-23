@@ -24,7 +24,9 @@ public class FighterMovement : MonoBehaviour
     void Update()
     {
         FaceOpponent();
-
+        
+            
+        
         // Velocidad para animación de caminar
         anim.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
     }
@@ -69,6 +71,7 @@ public class FighterMovement : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+
         if (collision.gameObject.CompareTag("Ground"))
         {
             grounded = true;
