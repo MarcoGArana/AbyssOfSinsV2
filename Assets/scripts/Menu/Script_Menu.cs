@@ -5,17 +5,20 @@ public class Script_Menu : MonoBehaviour
 {
     public void EmpezarJuegoSingle(string modo)
     {
-        SceneManager.LoadScene(modo);
+        Debug.Log("Cargando modo para un jugador...");
+        //SceneManager.LoadScene("PVE");
     }
 
     public void EmpezarJuegoTwoPlayers(string modo)
     {
-        SceneManager.LoadScene(modo);
+        Debug.Log("Cargando modo para dos jugadores...");
+        SceneManager.LoadScene("P1");
     }
 
     public void Creditos(string creditos)
     {
-        SceneManager.LoadScene(creditos);
+        Debug.Log("Cargando creditos...");
+        //SceneManager.LoadScene("Escena_Creditos");
     }
 
     public void Salir()
