@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Controlador principal de la interfaz de usuario en combate (HUD y Pausa).
@@ -246,8 +247,7 @@ public class FightingUIManager : MonoBehaviour
     public void GoToMenu()
     {
         Debug.Log("Menu Principal");
-        // TODO: Implementar carga de escena del menú principal
-        // SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Main Menu");
     }
 
     /// <summary>
