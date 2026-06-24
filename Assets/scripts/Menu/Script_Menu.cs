@@ -12,7 +12,7 @@ public class Script_Menu : MonoBehaviour
     public void EmpezarJuegoTwoPlayers(string modo)
     {
         Debug.Log("Cargando modo para dos jugadores...");
-        SceneManager.LoadScene("P1");
+        SceneManager.LoadScene(modo);
     }
 
     public void Creditos(string creditos)
