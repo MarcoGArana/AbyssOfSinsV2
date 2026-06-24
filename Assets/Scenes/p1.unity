@@ -1367,7 +1367,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StageBackgroundSetter
   stage1Background: {fileID: 2687057441370610899, guid: 7c95b455573f47a408d5c8e478e0644e, type: 3}
   stage2Background: {fileID: 5471114978251189754, guid: 592e329bbb16613479b5fc2dfad6d220, type: 3}
---- !u!1 &1030425181
 --- !u!1 &890668497
 GameObject:
   m_ObjectHideFlags: 0
