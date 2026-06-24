@@ -11,7 +11,7 @@ public class EndingManager : MonoBehaviour
     public GameObject Text2;
 
     public float secondsPerScreen = 7f;
-    public string nextSceneName = "MainMenu";
+    public string nextSceneName = "Main Menu";
 
     private int currentScreen = 1;
     private bool finished = false;
@@ -33,11 +33,24 @@ public class EndingManager : MonoBehaviour
     {
         if (finished) return;
 
-        if (Keyboard.current != null &&
-            Keyboard.current.anyKey.wasPressedThisFrame)
+        if (Keyboard.current != null)
         {
-            NextScreen();
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                SkipEnding();
+            }
+            else if (Keyboard.current.anyKey.wasPressedThisFrame)
+            {
+                NextScreen();
+            }
         }
+    }
+
+    void SkipEnding()
+    {
+        CancelInvoke(nameof(NextScreen));
+        finished = true;
+        SceneManager.LoadScene(nextSceneName);
     }
 
     void NextScreen()
