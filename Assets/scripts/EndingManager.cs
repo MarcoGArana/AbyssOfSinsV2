@@ -10,7 +10,7 @@ public class EndingManager : MonoBehaviour
     public GameObject EndingSceneN2_0;
     public GameObject Text2;
 
-    public float secondsPerScreen = 7f;
+    public float secondsPerScreen = 14f;
     public string nextSceneName = "Main Menu";
 
     private int currentScreen = 1;
