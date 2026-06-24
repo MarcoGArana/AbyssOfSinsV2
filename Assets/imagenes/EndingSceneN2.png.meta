@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: eafb1f3a71c88bb448a17371885aa224
+guid: 3d6509e982cf6534788ca9e0f6ce6b46
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1393914919920360100
-    second: LucianCrouch_0
-  - first:
-      213: 7392955635597414035
-    second: LucianCrouch_1
+      213: -5111248343584623494
+    second: EndingSceneN2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -54,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 64
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LucianCrouch_0
+      name: EndingSceneN2_0
       rect:
         serializedVersion: 2
-        x: 96
-        y: 31
-        width: 104
-        height: 217
+        x: 0
+        y: 0
+        width: 512
+        height: 256
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c55a70ff3c1d7ace0800000000000000
-      internalID: -1393914919920360100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: LucianCrouch_1
-      rect:
-        serializedVersion: 2
-        x: 351
-        y: 23
-        width: 140
-        height: 194
-      alignment: 9
-      pivot: {x: 0.5, y: 0.6}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 39e81042bfd099660800000000000000
-      internalID: 7392955635597414035
+      spriteID: a74b5d946b23119b0800000000000000
+      internalID: -5111248343584623494
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 475f5519aae011e4bb4431afe1d76584
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LucianCrouch_0: -1393914919920360100
-      LucianCrouch_1: 7392955635597414035
+      EndingSceneN2_0: -5111248343584623494
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
