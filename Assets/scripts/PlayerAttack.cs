@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -7,11 +6,8 @@ public class PlayerAttack : MonoBehaviour
 
     public bool attacking;
 
-    private PlayerInput playerInput;
-    private InputAction punchAction;
-    private InputAction kickAction;
-    private InputAction blockAction;
     private bool airAttackUsed;
+
     private FighterMovement movement;
 
     private FighterStats stats;
@@ -24,17 +20,10 @@ public class PlayerAttack : MonoBehaviour
     private string currentAttack;
 
 
+
     void Awake()
     {
         anim = GetComponent<Animator>();
-
-        playerInput = GetComponent<PlayerInput>();
-
-        punchAction = playerInput.actions["Punch light"];
-        kickAction = playerInput.actions["Kick light"];
-        blockAction = playerInput.actions["Block"];
-
-        airAttackUsed = false;
 
         movement = GetComponent<FighterMovement>();
 
@@ -42,82 +31,121 @@ public class PlayerAttack : MonoBehaviour
     }
 
 
+
     void Update()
     {
-        movement.isBlocking =
-    blockAction.IsPressed() &&
-    !movement.isDead &&
-    !movement.isHit && movement.grounded;
-
-        anim.SetBool("isBlocking", movement.isBlocking);
         if (movement.grounded)
         {
             airAttackUsed = false;
         }
+    }
+
+
+
+    public void LightPunch()
+    {
         if (movement.isDead)
             return;
+
         if (movement.isHit)
             return;
-        if (movement.isBlocking) {
+
+        if (movement.isBlocking)
             return;
-    }
+
 
         if (attacking)
             return;
 
 
-        if (punchAction.WasPressedThisFrame())
-        {
-            if (!movement.grounded && !airAttackUsed)
-            {
-                Attack("Aerial punch");
-                airAttackUsed = true;
 
-            }
-            else if (movement.crouching)
-            {
-                Attack("Low punch");
-            }
-            else if (movement.grounded)
-            {
-                Attack("Punch light");
-            }
+        if (!movement.grounded && !airAttackUsed)
+        {
+            Attack("Aerial punch");
+
+            airAttackUsed = true;
         }
 
+        else if (movement.crouching)
+        {
+            Attack("Low punch");
+        }
 
-            if (kickAction.WasPressedThisFrame())
-            {
-                if (!movement.grounded && !airAttackUsed)
-                {
-                    Attack("Aerial kick");
-                    airAttackUsed = true;
-
-                }
-                else if (movement.crouching)
-                {
-                    Attack("Low kick");
-                }
-                else if (movement.grounded)
-            {
-                    Attack("Kick light");
-                }
-            
+        else if (movement.grounded)
+        {
+            Attack("Punch light");
         }
     }
 
 
-    void Attack(string attackName)
+
+    public void LightKick()
+    {
+        if (movement.isDead)
+            return;
+
+        if (movement.isHit)
+            return;
+
+        if (movement.isBlocking)
+            return;
+
+
+        if (attacking)
+            return;
+
+
+
+        if (!movement.grounded && !airAttackUsed)
+        {
+            Attack("Aerial kick");
+
+            airAttackUsed = true;
+        }
+
+        else if (movement.crouching)
+        {
+            Attack("Low kick");
+        }
+
+        else if (movement.grounded)
+        {
+            Attack("Kick light");
+        }
+    }
+
+
+
+    public void SetBlock(bool value)
+    {
+        movement.isBlocking =
+            value &&
+            !movement.isDead &&
+            !movement.isHit &&
+            movement.grounded;
+
+
+        anim.SetBool(
+            "isBlocking",
+            movement.isBlocking
+        );
+    }
+
+
+
+    private void Attack(string attackName)
     {
         attacking = true;
 
-        // Guardamos qué ataque está haciendo
+
         currentAttack = attackName;
+
 
         anim.SetTrigger(attackName);
     }
 
 
-    // Esta función la llamará el Hitbox cuando golpee
+
     public int GetAttackDamage()
     {
         foreach (AttackData attack in attacks)
@@ -130,8 +158,11 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
+
         return 0;
     }
+
+
 
     public AttackType GetAttackType()
     {
@@ -143,8 +174,12 @@ public class PlayerAttack : MonoBehaviour
             }
         }
 
+
         return AttackType.High;
     }
+
+
+
     public void EndAttack()
     {
         attacking = false;
