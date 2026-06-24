@@ -8,7 +8,7 @@ public class IntroManager : MonoBehaviour
 
     void Start()
     {
-        Invoke(nameof(LoadGame), 10f);
+        Invoke(nameof(LoadGame), 20f);
     }
 
     void Update()
