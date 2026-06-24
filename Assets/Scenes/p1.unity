@@ -3285,6 +3285,7 @@ GameObject:
   - component: {fileID: 1964546344}
   - component: {fileID: 1964546343}
   - component: {fileID: 1964546342}
+  - component: {fileID: 1964546346}
   m_Layer: 5
   m_Name: GameUI
   m_TagString: Untagged
@@ -3376,6 +3377,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1964546346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964546341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85c65ee4a2ba22c4794b19797491bb67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FightingUIManager
+  player1Health: {fileID: 2124834866}
+  player1Slider: {fileID: 1611693325}
+  player1NameText: {fileID: 1386560531}
+  player2Health: {fileID: 656381330}
+  player2Slider: {fileID: 962089178}
+  player2NameText: {fileID: 823204865}
+  pauseMenuPanel: {fileID: 1397911448}
+  timerText: {fileID: 84963635}
 --- !u!1 &1977040604
 GameObject:
   m_ObjectHideFlags: 0
