@@ -85,7 +85,7 @@ public class StoryManager : MonoBehaviour
             CanvasScaler scaler = canvasGO.GetComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
             scaler.referenceResolution = new Vector2(1920, 1080);
-            scaler.match = 0.5f;
+            scaler.matchWidthOrHeight = 0.5f;
 
             GameObject bg = new GameObject("BackgroundOverlay", typeof(Image));
             bg.transform.SetParent(canvasRef.transform, false);
