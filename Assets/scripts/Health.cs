@@ -5,17 +5,63 @@ public class Health : MonoBehaviour
     public int currentHealth;
 
     private FighterStats stats;
+    private Animator anim;
+    private FighterMovement movement;
+
+    private bool dead;
+
 
     void Awake()
     {
         stats = GetComponent<FighterStats>();
+        anim = GetComponent<Animator>();
+        movement = GetComponent<FighterMovement>();
 
         currentHealth = stats.maxHealth;
     }
 
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(
+     int damage,
+     AttackType attackType
+ )
     {
+        if (dead)
+            return;
+
+        bool blocked = false;
+
+        if (movement.isBlocking)
+        {
+            switch (attackType)
+            {
+                case AttackType.High:
+
+                    blocked = !movement.crouching;
+
+                    break;
+
+                case AttackType.Low:
+
+                    blocked = movement.crouching;
+
+                    break;
+
+                case AttackType.Air:
+
+                    blocked = !movement.crouching;
+
+                    break;
+            }
+        }
+
+        if (blocked)
+        {
+            damage = Mathf.RoundToInt(
+                damage * 0.2f
+            );
+        }
+
         int finalDamage = Mathf.RoundToInt(
             damage / stats.defense
         );
@@ -25,16 +71,32 @@ public class Health : MonoBehaviour
         Debug.Log("Daño recibido: " + finalDamage);
         Debug.Log("Vida restante: " + currentHealth);
 
-
         if (currentHealth <= 0)
         {
             Die();
         }
+        else if (!blocked)
+        {
+            movement.isHit = true;
+            anim.SetTrigger("Hit");
+        }
+    }
+
+
+    public void EndHit()
+    {
+        movement.isHit = false;
     }
 
 
     void Die()
     {
+        dead = true;
+
+        movement.isDead = true;
+
         Debug.Log("KO");
+
+        anim.SetTrigger("Death");
     }
 }

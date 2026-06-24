@@ -10,7 +10,7 @@ public class PlayerAttack : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction punchAction;
     private InputAction kickAction;
-
+    private InputAction blockAction;
     private bool airAttackUsed;
     private FighterMovement movement;
 
@@ -32,6 +32,7 @@ public class PlayerAttack : MonoBehaviour
 
         punchAction = playerInput.actions["Punch light"];
         kickAction = playerInput.actions["Kick light"];
+        blockAction = playerInput.actions["Block"];
 
         airAttackUsed = false;
 
@@ -43,11 +44,23 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
+        movement.isBlocking =
+    blockAction.IsPressed() &&
+    !movement.isDead &&
+    !movement.isHit && movement.grounded;
+
+        anim.SetBool("isBlocking", movement.isBlocking);
         if (movement.grounded)
         {
             airAttackUsed = false;
         }
-
+        if (movement.isDead)
+            return;
+        if (movement.isHit)
+            return;
+        if (movement.isBlocking) {
+            return;
+    }
 
         if (attacking)
             return;
@@ -55,22 +68,40 @@ public class PlayerAttack : MonoBehaviour
 
         if (punchAction.WasPressedThisFrame())
         {
-            if (movement.grounded)
+            if (!movement.grounded && !airAttackUsed)
+            {
+                Attack("Aerial punch");
+                airAttackUsed = true;
+
+            }
+            else if (movement.crouching)
+            {
+                Attack("Low punch");
+            }
+            else if (movement.grounded)
+            {
                 Attack("Punch light");
+            }
         }
 
 
-        if (kickAction.WasPressedThisFrame())
-        {
-            if (movement.grounded)
+            if (kickAction.WasPressedThisFrame())
             {
-                Attack("Kick light");
-            }
-            else if (!airAttackUsed)
+                if (!movement.grounded && !airAttackUsed)
+                {
+                    Attack("Aerial kick");
+                    airAttackUsed = true;
+
+                }
+                else if (movement.crouching)
+                {
+                    Attack("Low kick");
+                }
+                else if (movement.grounded)
             {
-                Attack("Aerial kick");
-                airAttackUsed = true;
-            }
+                    Attack("Kick light");
+                }
+            
         }
     }
 
@@ -102,7 +133,18 @@ public class PlayerAttack : MonoBehaviour
         return 0;
     }
 
+    public AttackType GetAttackType()
+    {
+        foreach (AttackData attack in attacks)
+        {
+            if (attack.attackName == currentAttack)
+            {
+                return attack.attackType;
+            }
+        }
 
+        return AttackType.High;
+    }
     public void EndAttack()
     {
         attacking = false;

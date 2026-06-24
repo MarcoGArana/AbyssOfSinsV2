@@ -563,22 +563,10 @@ MonoBehaviour:
   attacks:
   - attackName: Punch light
     damage: 5
-    attackType: 0
   - attackName: Kick light
     damage: 8
-    attackType: 0
   - attackName: Aerial kick
     damage: 12
-    attackType: 2
-  - attackName: Aerial punch
-    damage: 8
-    attackType: 2
-  - attackName: Low punch
-    damage: 5
-    attackType: 1
-  - attackName: Low kick
-    damage: 7
-    attackType: 1
 --- !u!61 &848391036
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1945,22 +1933,10 @@ MonoBehaviour:
   attacks:
   - attackName: Punch light
     damage: 5
-    attackType: 0
   - attackName: Kick light
     damage: 8
-    attackType: 0
   - attackName: Aerial kick
     damage: 12
-    attackType: 2
-  - attackName: Aerial punch
-    damage: 8
-    attackType: 2
-  - attackName: Low punch
-    damage: 5
-    attackType: 1
-  - attackName: Low kick
-    damage: 7
-    attackType: 1
 --- !u!114 &2124834865
 MonoBehaviour:
   m_ObjectHideFlags: 0
