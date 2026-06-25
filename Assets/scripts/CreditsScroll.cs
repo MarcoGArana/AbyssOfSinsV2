@@ -7,7 +7,7 @@ public class CreditsScroll : MonoBehaviour
     public RectTransform creditsText;
     public float scrollSpeed = 40f;
     public float endYPosition = 1200f;
-    public string nextSceneName = "MainMenu";
+    public string nextSceneName = "Main Menu";
 
     private bool finished = false;
 

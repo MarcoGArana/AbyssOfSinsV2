@@ -800,7 +800,7 @@ MonoBehaviour:
   creditsText: {fileID: 1960779761}
   scrollSpeed: 40
   endYPosition: 1200
-  nextSceneName: MainMenu
+  nextSceneName: Main Menu
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

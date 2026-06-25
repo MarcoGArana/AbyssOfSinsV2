@@ -22,6 +22,6 @@ public class IntroManager : MonoBehaviour
     void LoadGame()
     {
         loading = true;
-        SceneManager.LoadScene("p1");
+        SceneManager.LoadScene("Main Menu");
     }
 }
