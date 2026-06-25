@@ -100,7 +100,7 @@ public class StoryTools
         SerializedObject so = new SerializedObject(sm);
         so.FindProperty("storyData").objectReferenceValue =
             AssetDatabase.LoadAssetAtPath<StoryData>("Assets/Story/IntroData.asset");
-        so.FindProperty("nextSceneName").stringValue = "p1";
+        so.FindProperty("nextSceneName").stringValue = "p2";
         so.FindProperty("showSkipButton").boolValue = true;
         so.ApplyModifiedProperties();
 

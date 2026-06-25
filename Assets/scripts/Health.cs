@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     public event Action<int, int> OnHealthChanged;
@@ -99,17 +99,22 @@ public class Health : MonoBehaviour
 
 
     void Die()
-    {
-        dead = true;
+{
+    dead = true;
 
-        movement.isDead = true;
+    movement.isDead = true;
 
-        Debug.Log("KO");
+    Debug.Log("KO");
 
+    anim.SetTrigger("Death");
 
-        anim.SetTrigger("Death");
+    OnDeath?.Invoke();
 
-        OnDeath?.Invoke();
+    Invoke(nameof(LoadEndingScene), 2.5f);
+}
 
-    }
+void LoadEndingScene()
+{
+    SceneManager.LoadScene("endingScene");
+}
 }

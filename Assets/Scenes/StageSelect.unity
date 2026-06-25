@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5c0a3174faa3a48add39c8bbfdda0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageSelectController
-  fightSceneName: p1
+  fightSceneName: p2
 --- !u!1 &1766871032
 GameObject:
   m_ObjectHideFlags: 0

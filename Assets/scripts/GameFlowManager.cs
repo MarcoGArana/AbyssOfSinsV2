@@ -8,7 +8,7 @@ public class GameFlowManager : MonoBehaviour
     [Header("Scene Names")]
     [SerializeField] private string menuScene = "MenuScene";
     [SerializeField] private string introScene = "IntroScene";
-    [SerializeField] private string gameScene = "p1";
+    [SerializeField] private string gameScene = "p2";
     [SerializeField] private string postCreditsScene = "PostCreditsScene";
 
     void Awake()
