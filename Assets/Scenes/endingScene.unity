@@ -717,7 +717,7 @@ MonoBehaviour:
   EndingSceneN2_0: {fileID: 473440339}
   Text2: {fileID: 137027267}
   secondsPerScreen: 20
-  nextSceneName: Main Menu
+  nextSceneName: creditsScene
 --- !u!4 &796202346
 Transform:
   m_ObjectHideFlags: 0
