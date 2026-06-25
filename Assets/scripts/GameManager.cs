@@ -4,10 +4,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public enum GameMode { VsAI, VsPlayer }
+    public enum GameMode { Arcade, Versus }
     public enum Stage { Stage1, Stage2 }
 
-    public GameMode SelectedGameMode { get; private set; } = GameMode.VsAI;
+    public GameMode SelectedGameMode { get; private set; } = GameMode.Arcade;
     public Stage SelectedStage { get; private set; } = Stage.Stage1;
 
     private void Awake()

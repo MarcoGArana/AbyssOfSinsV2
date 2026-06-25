@@ -6,7 +6,7 @@ public class Script_Menu : MonoBehaviour
     public void EmpezarJuegoSingle(string modo)
     {
         Debug.Log("Cargando modo para un jugador...");
-        //SceneManager.LoadScene("PVE");
+        //SceneManager.LoadScene(modo);
     }
 
     public void EmpezarJuegoTwoPlayers(string modo)

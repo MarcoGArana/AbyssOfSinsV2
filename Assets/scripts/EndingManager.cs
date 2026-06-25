@@ -18,6 +18,10 @@ public class EndingManager : MonoBehaviour
 
     void Start()
     {
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.Stop();
+        }
         // Mostrar primera imagen y texto
         EndingSceneN1_0.SetActive(true);
         Text1.SetActive(true);

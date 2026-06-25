@@ -8,7 +8,6 @@ public class CreditsScroll : MonoBehaviour
     public float scrollSpeed = 40f;
     public float endYPosition = 1200f;
     public string nextSceneName = "Main Menu";
-
     private bool finished = false;
 
     void Update()
@@ -19,13 +18,29 @@ public class CreditsScroll : MonoBehaviour
 
         if (creditsText.anchoredPosition.y >= endYPosition)
         {
-            finished = true;
-            SceneManager.LoadScene(nextSceneName);
+            GoToMainMenu();
         }
 
         if (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
         {
-            SceneManager.LoadScene(nextSceneName);
+            GoToMainMenu();
         }
+    }
+
+    /// <summary>
+    /// Centraliza la salida hacia el menú principal: restaura la música
+    /// del menú antes de cambiar de escena, evitando que el audio se quede
+    /// detenido (heredado del .Stop() llamado en la escena de Ending).
+    /// </summary>
+    private void GoToMainMenu()
+    {
+        finished = true;
+
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayMenuMusic();
+        }
+
+        SceneManager.LoadScene(nextSceneName);
     }
 }
