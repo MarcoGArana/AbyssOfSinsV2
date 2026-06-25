@@ -6,24 +6,15 @@ public class AttackHitbox : MonoBehaviour
 
     private bool hitSomething;
 
-
     void Awake()
     {
         playerAttack = GetComponentInParent<PlayerAttack>();
     }
 
-
     private void OnEnable()
     {
         hitSomething = false;
-        Debug.Log("Hitbox activada");
     }
-
-    private void OnDisable()
-    {
-        Debug.Log("Hitbox desactivada");
-    }
-
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -38,9 +29,13 @@ public class AttackHitbox : MonoBehaviour
 
             int damage = playerAttack.GetAttackDamage();
 
-            health.TakeDamage(damage);
+            AttackType attackType =
+                playerAttack.GetAttackType();
+
+            health.TakeDamage(
+                damage,
+                attackType
+            );
         }
     }
-
-
 }

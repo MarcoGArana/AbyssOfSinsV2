@@ -3,7 +3,7 @@ using UnityEngine;
 public class FighterMovement : MonoBehaviour
 {
     private FighterStats stats;
-
+    public bool isHit;
     [Header("Opponent")]
     public Transform opponent;
 
@@ -12,7 +12,8 @@ public class FighterMovement : MonoBehaviour
     private Animator anim;
     public bool crouching;
     public bool grounded;
-
+    public bool isDead;
+    public bool isBlocking;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,7 +34,21 @@ public class FighterMovement : MonoBehaviour
 
     public void Move(float direction)
 {
-    if (crouching)
+        if (isHit)
+            return;
+        if (isDead)
+            return;
+        if (isBlocking)
+        {
+            Debug.Log("Bloqueando");
+
+            rb.linearVelocity = new Vector2(
+                0,
+                rb.linearVelocity.y
+            );
+            return;
+        }
+        if (crouching)
     {
         rb.linearVelocity = new Vector2(
             0,
@@ -43,7 +58,7 @@ public class FighterMovement : MonoBehaviour
         return;
     }
 
-    rb.linearVelocity = new Vector2(
+        rb.linearVelocity = new Vector2(
         direction * stats.moveSpeed,
         rb.linearVelocity.y
     );
@@ -52,6 +67,12 @@ public class FighterMovement : MonoBehaviour
 
     public void Jump()
     {
+        if (isHit)
+            return;
+        if (isDead)
+            return;
+        if (isBlocking)
+            return;
         if (grounded)
         {
             rb.linearVelocity = new Vector2(

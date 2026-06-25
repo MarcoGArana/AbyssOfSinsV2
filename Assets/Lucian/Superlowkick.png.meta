@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: eafb1f3a71c88bb448a17371885aa224
+guid: a3742fe5a5d0c5c47be47dbd98c214bc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1393914919920360100
-    second: LucianCrouch_0
+      213: -207790898132323403
+    second: Superlowkick_0
   - first:
-      213: 7392955635597414035
-    second: LucianCrouch_1
+      213: 3975217890030998249
+    second: Superlowkick_1
+  - first:
+      213: 1739701456378454192
+    second: Superlowkick_2
+  - first:
+      213: -7490683125477883621
+    second: Superlowkick_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -78,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -103,13 +109,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LucianCrouch_0
+      name: Superlowkick_0
       rect:
         serializedVersion: 2
-        x: 96
-        y: 31
-        width: 104
-        height: 217
+        x: 60
+        y: 22
+        width: 140
+        height: 194
+      alignment: 9
+      pivot: {x: 0.51, y: 0.87}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b373417747cd1df0800000000000000
+      internalID: -207790898132323403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Superlowkick_1
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 20
+        width: 221
+        height: 196
+      alignment: 9
+      pivot: {x: 0.51, y: 0.87}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e253100c9fca2730800000000000000
+      internalID: 3975217890030998249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Superlowkick_2
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 113
+        width: 8
+        height: 9
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +168,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c55a70ff3c1d7ace0800000000000000
-      internalID: -1393914919920360100
+      spriteID: 0b0eaaad149a42810800000000000000
+      internalID: 1739701456378454192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: LucianCrouch_1
+      name: Superlowkick_3
       rect:
         serializedVersion: 2
-        x: 351
-        y: 23
-        width: 140
-        height: 194
-      alignment: 9
-      pivot: {x: 0.51299655, y: 0.87337244}
+        x: 261
+        y: 73
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39e81042bfd099660800000000000000
-      internalID: 7392955635597414035
+      spriteID: b11c0ec726fbb0890800000000000000
+      internalID: -7490683125477883621
       vertices: []
       indices: 
       edges: []
@@ -150,7 +200,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 475f5519aae011e4bb4431afe1d76584
+    spriteID: 5e788f52afc2ff740b48431f2f6874a8
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      LucianCrouch_0: -1393914919920360100
-      LucianCrouch_1: 7392955635597414035
+      Superlowkick_0: -207790898132323403
+      Superlowkick_1: 3975217890030998249
+      Superlowkick_2: 1739701456378454192
+      Superlowkick_3: -7490683125477883621
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
