@@ -7,6 +7,8 @@ public class FighterMovement : MonoBehaviour
     [Header("Opponent")]
     public Transform opponent;
 
+    [SerializeField] private PlayerAudio playerAudio;
+
     private Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anim;
@@ -20,6 +22,8 @@ public class FighterMovement : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
         stats = GetComponent<FighterStats>();
+
+        if (playerAudio == null) playerAudio = GetComponent<PlayerAudio>();
     }
 
     void Update()
@@ -30,6 +34,7 @@ public class FighterMovement : MonoBehaviour
         
         // Velocidad para animación de caminar
         anim.SetFloat("Speed", Mathf.Abs(rb.linearVelocity.x));
+        HandleWalkingAudio();
     }
 
     public void Move(float direction)
@@ -100,6 +105,20 @@ public class FighterMovement : MonoBehaviour
         }
 
         transform.localScale = currentScale;
+    }
+
+    void HandleWalkingAudio()
+    {
+        if (playerAudio == null) return;
+
+        if (Mathf.Abs(rb.linearVelocity.x) > 0.1f && grounded)
+        {
+            playerAudio.StartWalking();
+        }
+        else
+        {
+            playerAudio.StopWalking();
+        }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
