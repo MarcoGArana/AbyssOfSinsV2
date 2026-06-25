@@ -11,7 +11,7 @@ public class EndingManager : MonoBehaviour
     public GameObject Text2;
 
     public float secondsPerScreen = 14f;
-    public string nextSceneName = "Main Menu";
+    public string nextSceneName = "creditsScene";
 
     private int currentScreen = 1;
     private bool finished = false;
