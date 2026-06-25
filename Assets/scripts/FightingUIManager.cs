@@ -246,7 +246,17 @@ public class FightingUIManager : MonoBehaviour
     /// </summary>
     public void GoToMenu()
     {
+        Time.timeScale = 1f;
+        IsPaused = false;
+
         Debug.Log("Menu Principal");
+
+        // Vuelve a la música del menú antes de cambiar de escena.
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayMenuMusic();
+        }
+
         SceneManager.LoadScene("Main Menu");
     }
 
