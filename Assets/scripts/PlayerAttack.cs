@@ -124,11 +124,20 @@ public class PlayerAttack : MonoBehaviour
             !movement.isHit &&
             movement.grounded;
 
-
-        anim.SetBool(
-            "isBlocking",
-            movement.isBlocking
+        if (!movement.crouching)
+            anim.SetBool(
+                "isBlocking",
+                movement.isBlocking
+            );
+        else
+        {
+            anim.SetBool(
+            "Low Blocking",
+            movement.isBlocking && movement.crouching
         );
+
+
+        }
     }
 
 

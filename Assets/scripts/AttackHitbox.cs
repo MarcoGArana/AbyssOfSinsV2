@@ -31,7 +31,7 @@ public class AttackHitbox : MonoBehaviour
 
             AttackType attackType =
                 playerAttack.GetAttackType();
-
+            
             health.TakeDamage(
                 damage,
                 attackType
