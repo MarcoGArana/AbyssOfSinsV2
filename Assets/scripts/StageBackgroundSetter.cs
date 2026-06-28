@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class StageBackgroundSetter : MonoBehaviour
 {
-    [Header("Asigna aquí los sprites de cada escenario")]
+    [Header("Asigna aquï¿½ los sprites de cada escenario")]
     [SerializeField] private Sprite stage1Background;
     [SerializeField] private Sprite stage2Background;
 
@@ -18,7 +18,7 @@ public class StageBackgroundSetter : MonoBehaviour
     {
         ApplySelectedStageBackground();
 
-        // Para cambiar la música dependiendo del escenario que se elija
+        // Para cambiar la mï¿½sica dependiendo del escenario que se elija
         if (AudioManager.Instance != null && GameManager.Instance != null)
         {
             AudioManager.Instance.PlayStageMusic(GameManager.Instance.SelectedStage);
@@ -27,7 +27,7 @@ public class StageBackgroundSetter : MonoBehaviour
 
     private void ApplySelectedStageBackground()
     {
-        // Si por alguna razón se entra a esta escena sin pasar por el menú (ej. probando directo desde el editor), GameManager.Instance será null.
+        // Si por alguna razï¿½n se entra a esta escena sin pasar por el menï¿½ (ej. probando directo desde el editor), GameManager.Instance serï¿½ null.
         if (GameManager.Instance == null)
         {
             Debug.LogWarning("GameManager no encontrado. Usando escenario por defecto.");
