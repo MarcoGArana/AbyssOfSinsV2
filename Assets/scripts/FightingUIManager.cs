@@ -245,7 +245,7 @@ public class FightingUIManager : MonoBehaviour
 
         if (winnerText != null)
         {
-            winnerText.text = winnerName;
+            winnerText.text = winnerName + "!";
         }
     }
 

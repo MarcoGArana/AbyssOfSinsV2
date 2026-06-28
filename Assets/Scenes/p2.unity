@@ -1715,7 +1715,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ganaste!
+  m_text: Ganaste
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c93927022197994bbb1c29a6fce3dbb, type: 2}
   m_sharedMaterial: {fileID: -3142403747017877440, guid: 2c93927022197994bbb1c29a6fce3dbb, type: 2}
