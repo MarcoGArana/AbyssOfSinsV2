@@ -3718,6 +3718,8 @@ MonoBehaviour:
   player2NameText: {fileID: 6235940574163596431}
   pauseMenuPanel: {fileID: 4758131308722675054}
   timerText: {fileID: 7336438910433205561}
+  winPanel: {fileID: 982928139}
+  winnerText: {fileID: 1353891023}
 --- !u!114 &5399786174276684893
 MonoBehaviour:
   m_ObjectHideFlags: 0

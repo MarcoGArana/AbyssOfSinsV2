@@ -110,7 +110,7 @@ public class Health : MonoBehaviour
 
     OnDeath?.Invoke();
 
-    Invoke(nameof(LoadEndingScene), 2.5f);
+    Invoke(nameof(LoadEndingScene), 10f);
 }
 
 void LoadEndingScene()

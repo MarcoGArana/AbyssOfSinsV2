@@ -26,6 +26,10 @@ public class FightingUIManager : MonoBehaviour
     [Header("Timer UI Elements")]
     [SerializeField] private TextMeshProUGUI timerText;
 
+    [Header("Win UI Elements")]
+    [SerializeField] private GameObject winPanel;
+    [SerializeField] private TextMeshProUGUI winnerText;
+
     private float timeRemaining = 60f; // 1 minuto (en segundos)
     private bool isMatchActive = true;
     private Vector3 originalTimerScale;
@@ -41,6 +45,10 @@ public class FightingUIManager : MonoBehaviour
         if (pauseMenuPanel != null)
         {
             pauseMenuPanel.SetActive(false);
+        }
+        if (winPanel != null)
+        {
+            winPanel.SetActive(false);
         }
         Time.timeScale = 1f;
         IsPaused = false;
@@ -221,16 +229,54 @@ public class FightingUIManager : MonoBehaviour
         }
     }
 
+    public void ShowWinner(string winnerName)
+    {
+        isMatchActive = false;
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.WinnerName = winnerName;
+        }
+
+        if (winPanel != null)
+        {
+            winPanel.SetActive(true);
+        }
+
+        if (winnerText != null)
+        {
+            winnerText.text = winnerName;
+        }
+    }
+
     private void HandlePlayer1Death()
     {
         Debug.Log("[FightingUIManager] ¡Jugador 1 ha sido Derrotado!");
-        // Aquí se puede gatillar la UI de Fin del Round / Victoria del P2
+        string winnerName = "Jugador 2";
+        if (player2Health != null)
+        {
+            FighterStats stats = player2Health.GetComponent<FighterStats>();
+            if (stats != null && !string.IsNullOrEmpty(stats.characterName))
+            {
+                winnerName = stats.characterName;
+            }
+        }
+        ShowWinner(winnerName);
     }
 
     private void HandlePlayer2Death()
     {
         Debug.Log("[FightingUIManager] ¡Jugador 2 ha sido Derrotado!");
-        // Aquí se puede gatillar la UI de Fin del Round / Victoria del P1
+        string winnerName = "Jugador 1";
+        if (player1Health != null)
+        {
+            FighterStats stats = player1Health.GetComponent<FighterStats>();
+            if (stats != null && !string.IsNullOrEmpty(stats.characterName))
+            {
+                winnerName = stats.characterName;
+            }
+        }
+        ShowWinner(winnerName);
     }
 
     /// <summary>

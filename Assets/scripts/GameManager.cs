@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
     public GameMode SelectedGameMode { get; private set; } = GameMode.Arcade;
     public Stage SelectedStage { get; private set; } = Stage.Stage1;
+    public string WinnerName { get; set; }
 
     private void Awake()
     {
