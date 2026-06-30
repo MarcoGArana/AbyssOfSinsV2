@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class StageSelectController : MonoBehaviour
 {
     [Header("Nombre de la escena de pelea")]
-    [SerializeField] private string fightSceneName = "Fight";
+    [SerializeField] private string fightSceneName = "p2";
 
     public void SelectStage1()
     {

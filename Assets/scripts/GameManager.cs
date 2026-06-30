@@ -32,4 +32,12 @@ public class GameManager : MonoBehaviour
     {
         SelectedStage = stage;
     }
+
+    public bool IsArcadeMode => SelectedGameMode == GameMode.Arcade;
+
+    public void SetArcadeMode(Stage stage)
+    {
+        SelectedGameMode = GameMode.Arcade;
+        SelectedStage = stage;
+    }
 }

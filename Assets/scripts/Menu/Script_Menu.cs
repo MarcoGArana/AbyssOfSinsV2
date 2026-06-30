@@ -19,29 +19,17 @@ public class Script_Menu : MonoBehaviour
 
     public void EmpezarJuegoSingle(string modo)
     {
-        Debug.Log("Modo un jugador no implementado. Mostrando aviso...");
-        // En lugar de cargar la escena, iniciamos la corrutina
-        StartCoroutine(MostrarPanelTemporalmente());
-    }
-
-    // Corrutina que maneja el tiempo de espera
-    private IEnumerator MostrarPanelTemporalmente()
-    {
-        if (panelNextUpdate != null)
-        {
-            panelNextUpdate.SetActive(true);      // Muestra el panel
-            yield return new WaitForSeconds(3f);  // Espera exactamente 3 segundos
-            panelNextUpdate.SetActive(false);     // Oculta el panel de nuevo
-        }
-        else
-        {
-            Debug.LogWarning("El panel no ha sido asignado en el Inspector de Unity.");
-        }
+        Debug.Log("Cargando modo Arcade...");
+        if (GameManager.Instance != null)
+            GameManager.Instance.SetGameMode(GameManager.GameMode.Arcade);
+        SceneManager.LoadScene(modo);
     }
 
     public void EmpezarJuegoTwoPlayers(string modo)
     {
-        Debug.Log("Cargando modo para dos jugadores...");
+        Debug.Log("Cargando modo Versus...");
+        if (GameManager.Instance != null)
+            GameManager.Instance.SetGameMode(GameManager.GameMode.Versus);
         SceneManager.LoadScene(modo);
     }
 
