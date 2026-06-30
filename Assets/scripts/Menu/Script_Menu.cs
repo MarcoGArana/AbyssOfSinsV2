@@ -5,13 +5,17 @@ public class Script_Menu : MonoBehaviour
 {
     public void EmpezarJuegoSingle(string modo)
     {
-        Debug.Log("Cargando modo para un jugador...");
-        //SceneManager.LoadScene(modo);
+        Debug.Log("Cargando modo Arcade...");
+        if (GameManager.Instance != null)
+            GameManager.Instance.SetGameMode(GameManager.GameMode.Arcade);
+        SceneManager.LoadScene(modo);
     }
 
     public void EmpezarJuegoTwoPlayers(string modo)
     {
-        Debug.Log("Cargando modo para dos jugadores...");
+        Debug.Log("Cargando modo Versus...");
+        if (GameManager.Instance != null)
+            GameManager.Instance.SetGameMode(GameManager.GameMode.Versus);
         SceneManager.LoadScene(modo);
     }
 

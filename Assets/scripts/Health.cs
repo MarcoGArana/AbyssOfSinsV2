@@ -8,6 +8,7 @@ public class Health : MonoBehaviour
 
     public int currentHealth;
 
+    private PlayerAttack playerAttack;
     private FighterStats stats;
     private Animator anim;
     private FighterMovement movement;
@@ -17,6 +18,7 @@ public class Health : MonoBehaviour
 
     void Awake()
     {
+        playerAttack = GetComponent<PlayerAttack>();
         stats = GetComponent<FighterStats>();
         anim = GetComponent<Animator>();
         movement = GetComponent<FighterMovement>();
@@ -87,6 +89,10 @@ public class Health : MonoBehaviour
         else if (!blocked)
         {
             movement.isHit = true;
+            if (playerAttack != null)
+            {
+                playerAttack.EndAttack();
+            }
             anim.SetTrigger("Hit");
         }
     }
@@ -99,22 +105,29 @@ public class Health : MonoBehaviour
 
 
     void Die()
-{
-    dead = true;
+    {
+        dead = true;
+        movement.isDead = true;
+        Debug.Log("KO");
+        anim.SetTrigger("Death");
+        OnDeath?.Invoke();
 
-    movement.isDead = true;
+        if (GameManager.Instance != null && GameManager.Instance.IsArcadeMode)
+            Invoke(nameof(GoToMenuAfterDelay), 10f);
+        else
+            Invoke(nameof(LoadEndingScene), 10f);
+    }
 
-    Debug.Log("KO");
+    void LoadEndingScene()
+    {
+        SceneManager.LoadScene("endingScene");
+    }
 
-    anim.SetTrigger("Death");
-
-    OnDeath?.Invoke();
-
-    Invoke(nameof(LoadEndingScene), 10f);
-}
-
-void LoadEndingScene()
-{
-    SceneManager.LoadScene("endingScene");
-}
+    void GoToMenuAfterDelay()
+    {
+        Time.timeScale = 1f;
+        if (AudioManager.Instance != null)
+            AudioManager.Instance.PlayMenuMusic();
+        SceneManager.LoadScene("Main Menu");
+    }
 }

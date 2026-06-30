@@ -130,7 +130,10 @@ public class FightingUIManager : MonoBehaviour
             FighterStats p2Stats = player2Health.GetComponent<FighterStats>();
             if (p2Stats != null && player2NameText != null)
             {
-                player2NameText.text = p2Stats.characterName;
+                if (GameManager.Instance != null && GameManager.Instance.IsArcadeMode)
+                    player2NameText.text = "CPU";
+                else
+                    player2NameText.text = p2Stats.characterName;
             }
             HandlePlayer2HealthChanged(player2Health.currentHealth, p2Stats != null ? p2Stats.maxHealth : 100);
         }
@@ -258,7 +261,10 @@ public class FightingUIManager : MonoBehaviour
             FighterStats stats = player2Health.GetComponent<FighterStats>();
             if (stats != null && !string.IsNullOrEmpty(stats.characterName))
             {
-                winnerName = stats.characterName;
+                if (GameManager.Instance != null && GameManager.Instance.IsArcadeMode)
+                    winnerName = "CPU";
+                else
+                    winnerName = stats.characterName;
             }
         }
         ShowWinner(winnerName);
@@ -273,7 +279,10 @@ public class FightingUIManager : MonoBehaviour
             FighterStats stats = player1Health.GetComponent<FighterStats>();
             if (stats != null && !string.IsNullOrEmpty(stats.characterName))
             {
-                winnerName = stats.characterName;
+                if (GameManager.Instance != null && GameManager.Instance.IsArcadeMode)
+                    winnerName = "Jugador";
+                else
+                    winnerName = stats.characterName;
             }
         }
         ShowWinner(winnerName);
