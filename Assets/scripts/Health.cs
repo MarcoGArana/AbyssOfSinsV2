@@ -111,11 +111,13 @@ public class Health : MonoBehaviour
         Debug.Log("KO");
         anim.SetTrigger("Death");
         OnDeath?.Invoke();
+    }
 
-        if (GameManager.Instance != null && GameManager.Instance.IsArcadeMode)
-            Invoke(nameof(GoToMenuAfterDelay), 10f);
-        else
-            Invoke(nameof(LoadEndingScene), 10f);
+    public void ResetHealth()
+    {
+        dead = false;
+        currentHealth = stats.maxHealth;
+        OnHealthChanged?.Invoke(currentHealth, stats.maxHealth);
     }
 
     void LoadEndingScene()

@@ -252,4 +252,13 @@ public class EnemyAI : MonoBehaviour
     {
         return transform.position.x <= stageMinX + 0.5f || transform.position.x >= stageMaxX - 0.5f;
     }
+
+    public void ResetAI()
+    {
+        CancelInvoke();
+        currentState = AIState.Idle;
+        decisionTimer = 0f;
+        waitingAerialAttack = false;
+        playerWasAttacking = false;
+    }
 }

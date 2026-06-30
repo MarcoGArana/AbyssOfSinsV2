@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -183,5 +183,11 @@ public class PlayerAttack : MonoBehaviour
     public void EndAttack()
     {
         attacking = false;
+    }
+
+    public void ResetAttack()
+    {
+        attacking = false;
+        airAttackUsed = false;
     }
 }
