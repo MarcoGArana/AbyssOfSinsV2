@@ -234,8 +234,29 @@ public class FightingUIManager : MonoBehaviour
         }
 
         // 2. Control de scripts individuales por si hay inputs directos (polling de teclado como en PlayerMovement)
+        bool isArcade = GameManager.Instance != null && GameManager.Instance.IsArcadeMode;
+
         PlayerController[] controllers = FindObjectsByType<PlayerController>(FindObjectsSortMode.None);
-        foreach (PlayerController c in controllers) c.enabled = active;
+        foreach (PlayerController c in controllers)
+        {
+            if (active)
+            {
+                // Si este luchador tiene IA, el controlador humano debe desactivarse en modo Arcade
+                EnemyAI ai = c.GetComponent<EnemyAI>();
+                if (ai != null)
+                {
+                    c.enabled = !isArcade;
+                }
+                else
+                {
+                    c.enabled = true;
+                }
+            }
+            else
+            {
+                c.enabled = false;
+            }
+        }
 
         FighterMovement[] movements = FindObjectsByType<FighterMovement>(FindObjectsSortMode.None);
         foreach (FighterMovement m in movements) m.enabled = active;
@@ -244,11 +265,39 @@ public class FightingUIManager : MonoBehaviour
         foreach (PlayerAttack a in attacks) a.enabled = active;
 
         PlayerMovement[] playerMovements = FindObjectsByType<PlayerMovement>(FindObjectsSortMode.None);
-        foreach (PlayerMovement pm in playerMovements) pm.enabled = active;
+        foreach (PlayerMovement pm in playerMovements)
+        {
+            if (active)
+            {
+                EnemyAI ai = pm.GetComponent<EnemyAI>();
+                if (ai != null)
+                {
+                    pm.enabled = !isArcade;
+                }
+                else
+                {
+                    pm.enabled = true;
+                }
+            }
+            else
+            {
+                pm.enabled = false;
+            }
+        }
 
-        // Desactivar también la IA del enemigo para que no actúe durante intros/pausas
+        // Activar la IA de los enemigos solo en modo Arcade cuando active sea true
         EnemyAI[] ais = FindObjectsByType<EnemyAI>(FindObjectsSortMode.None);
-        foreach (EnemyAI ai in ais) ai.enabled = active;
+        foreach (EnemyAI ai in ais)
+        {
+            if (active)
+            {
+                ai.enabled = isArcade;
+            }
+            else
+            {
+                ai.enabled = false;
+            }
+        }
     }
 
     #region Event Handlers (Observer Pattern)
