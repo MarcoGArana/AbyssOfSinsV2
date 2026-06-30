@@ -1,17 +1,17 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 /// <summary>
-/// Singleton que controla la música de fondo del juego.
-/// Colócalo en un GameObject vacío llamado "AudioManager" SOLO en la primera
+/// Singleton que controla la mï¿½sica de fondo del juego.
+/// Colï¿½calo en un GameObject vacï¿½o llamado "AudioManager" SOLO en la primera
 /// escena que se carga (por ejemplo, MainMenu). Gracias a DontDestroyOnLoad,
-/// sobrevivirá los cambios de escena y no se duplicará.
+/// sobrevivirï¿½ los cambios de escena y no se duplicarï¿½.
 /// </summary>
 [RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager Instance { get; private set; }
 
-    [Header("Música")]
+    [Header("Mï¿½sica")]
     [SerializeField] private AudioClip menuMusic;
     [SerializeField] private AudioClip[] stageMusic; // Una pista por cada Stage del GameManager (mismo orden que el enum)
     [SerializeField] private float defaultVolume = 0.5f;
@@ -22,7 +22,7 @@ public class AudioManager : MonoBehaviour
 
     private void Awake()
     {
-        // Patrón Singleton: si ya existe una instancia, esta se destruye.
+        // Patrï¿½n Singleton: si ya existe una instancia, esta se destruye.
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -40,15 +40,15 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        // Reproduce la música del menú al iniciar el juego.
+        // Reproduce la mï¿½sica del menï¿½ al iniciar el juego.
         if (menuMusic != null)
             PlayMusic(menuMusic);
     }
 
-    /// <summary>Reproduce un clip con fade-in/out simple. Si ya está sonando, no lo reinicia.</summary>
+    /// <summary>Reproduce un clip con fade-in/out simple. Si ya estï¿½ sonando, no lo reinicia.</summary>
     public void PlayMusic(AudioClip clip)
     {
-        if (clip == null || _audioSource.clip == clip) return;
+        if (clip == null || (_audioSource.clip == clip && _audioSource.isPlaying)) return;
 
         if (_fadeCoroutine != null)
             StopCoroutine(_fadeCoroutine);
@@ -58,14 +58,14 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMenuMusic() => PlayMusic(menuMusic);
 
-    /// <summary>Reproduce la música correspondiente al escenario indicado.</summary>
+    /// <summary>Reproduce la mï¿½sica correspondiente al escenario indicado.</summary>
     public void PlayStageMusic(GameManager.Stage stage)
     {
         int index = (int)stage;
 
         if (stageMusic == null || index < 0 || index >= stageMusic.Length || stageMusic[index] == null)
         {
-            Debug.LogWarning($"No hay música asignada para el escenario {stage} en AudioManager. " +
+            Debug.LogWarning($"No hay mï¿½sica asignada para el escenario {stage} en AudioManager. " +
                               "Revisa el arreglo 'stageMusic' en el Inspector.");
             return;
         }
