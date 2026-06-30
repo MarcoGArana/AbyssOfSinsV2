@@ -18,6 +18,8 @@ public class PlayerAttack : MonoBehaviour
 
 
     private string currentAttack;
+    private float attackTimer = 0f;
+    private float maxAttackDuration = 0.6f;
 
 
 
@@ -37,6 +39,16 @@ public class PlayerAttack : MonoBehaviour
         if (movement.grounded)
         {
             airAttackUsed = false;
+        }
+
+        if (attacking)
+        {
+            attackTimer += Time.deltaTime;
+            if (attackTimer >= maxAttackDuration)
+            {
+                attacking = false;
+                Debug.LogWarning($"[PlayerAttack] Se forzó el fin del ataque '{currentAttack}' por superar la duración máxima.");
+            }
         }
     }
 
@@ -136,11 +148,8 @@ public class PlayerAttack : MonoBehaviour
     private void Attack(string attackName)
     {
         attacking = true;
-
-
         currentAttack = attackName;
-
-
+        attackTimer = 0f; // Resetear temporizador de salvaguarda
         anim.SetTrigger(attackName);
     }
 
