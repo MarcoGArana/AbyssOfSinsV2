@@ -618,7 +618,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.003954172, y: -0.20308477}
+  m_Offset: {x: -0.097545505, y: -0.2030847}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -628,7 +628,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.8281999, y: 3.1057324}
+  m_Size: {x: 1.1596898, y: 3.1057324}
   m_EdgeRadius: 0
 --- !u!50 &848391037
 Rigidbody2D:
@@ -882,11 +882,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   profile:
-    aggressiveness: 0.85
-    blockChance: 0.4
-    mistakeRate: 0.15
+    aggressiveness: 0.9
+    blockChance: 0.3
+    mistakeRate: 0.1
     reactionTimeMin: 0.08
-    reactionTimeMax: 0.25
+    reactionTimeMax: 0.15
     blockHoldTime: 0.4
     lowAttackChance: 0.2
     aerialAttackChance: 0.15
@@ -2174,7 +2174,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.003954172, y: -0.20914263}
+  m_Offset: {x: -0.11760081, y: -0.20914268}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2184,7 +2184,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.8281999, y: 3.0936165}
+  m_Size: {x: 1.1463184, y: 3.0936165}
   m_EdgeRadius: 0
 --- !u!50 &2124834856
 Rigidbody2D:
